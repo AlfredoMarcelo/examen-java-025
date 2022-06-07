@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="component/componentes :: _head(~{::title})">
+<meta charset="UTF-8">
+<title>Registrarse</title>
+</head>
+<body>
+	<nav data-th-replace="component/componentes :: _navbar"></nav>
+	<div class="container">
+		<div class="row d-flex justify-content-center mt-5">
+			<div class="col-8 mt-4 bg-light border border-1 border-dark rounded-3 py-1">
+				<p class="h3 text-center">Dev-courses</p>
+				<p class="fs-5 text-center">Ingrese sus datos</p>
+				<form class="row g-3" data-th-action="@{/postulante/registrar}" data-th-object="${postulante}" method="post">
+					<input type="hidden" data-th-field="*{id}"/>
+					<div class="col-md-6">
+				    	<label for="nombre" class="form-label">Nombre completo: </label>
+				    	<input data-th-field="*{nombre}" type="text" class="form-control" id="nombre">
+				  	</div>
+					<div class="col-md-6">
+				    	<label for="rut" class="form-label">RUN: </label>
+				    	<input data-th-field="*{rut}" type="text" class="form-control" id="rut">
+				  	</div>
+					<div class="col-md-6">
+				    	<label for="email" class="form-label">Correo electrónico: </label>
+				    	<input data-th-field="*{email}" type="email" class="form-control" id="email">
+				  	</div>
+				  	<div class="col-md-6">
+				    	<label for="contrasena" class="form-label">Contraseña: </label>
+				    	<input data-th-field="*{contrasena}" type="password" class="form-control" id="contrasena">
+				  	</div>
+				  	<div class="col-6">
+				    	<label for="telefono" class="form-label">Telefono: </label>
+				    	<input data-th-field="*{telefono}" type="text" class="form-control" id="telefono" placeholder="">
+				  	</div>
+				  	<div class="col-6">
+				    	<label for="direccion" class="form-label">Dirección: </label>
+				    	<input data-th-field="*{direccion}" type="text" class="form-control" id="direccion" placeholder="">
+				  	</div>
+				  	<div class="col-md-4 ms-auto">
+				    	<label for="region" class="form-label">Región: </label>
+				    	<select data-th-field="*{region}" id="region" class="form-select">	
+				      		<option value="I">I</option>
+				      		<option value="II">II</option>
+				      		<option value="III">III</option>
+				      		<option value="IV">IV</option>
+				      		<option value="VI">VI</option>
+				      		<option value="VII">VII</option>
+				      		<option value="VIII">VIII</option>
+				      		<option value="IX">IX</option>
+				      		<option value="X">X</option>
+				      		<option value="XI">XI</option>
+				      		<option value="XII">XII</option>
+				      		<option value="XIII">XIII</option>
+				      		<option value="XIV">XIV</option>
+				      		<option value="XV">XV</option>
+				    	</select>
+				  	</div>
+				  	<div class="col-12 mb-2">
+				    	<button type="submit" class="btn btn-outline-success">Registrarse</button>
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col my-5 py-3"><span>-</span></div>
+	<footer data-th-replace="component/componentes :: _footer"></footer>
+	<script data-th-replace="component/componentes :: _script"></script>
+</body>
+</html>

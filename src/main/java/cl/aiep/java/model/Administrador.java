@@ -24,5 +24,5 @@ public class Administrador {
 	@Column(nullable = false)
 	private String nombre;
 	@Column(nullable = false)
-	private String password;
+	private String contrasena;
 }

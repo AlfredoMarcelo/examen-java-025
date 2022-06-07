@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head data-th-replace="component/componentes :: _head(~{::title})">
 <meta charset="UTF-8">
 <title>Inicio</title>
 </head>
 <body>
+	<nav data-th-replace="component/componentes :: _navbar"></nav>
+	<div data-th-replace="component/componentes :: _carousel"></div>
 	<h1>Index</h1>
+	<footer data-th-replace="component/componentes :: _footer"></footer>
+	<script data-th-replace="component/componentes :: _script"></script>
 </body>
 </html>

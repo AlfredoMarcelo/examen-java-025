@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="component/componentes :: _head(~{:: title})">
+<meta charset="UTF-8">
+<title>Iniciar sesión</title>
+</head>
+<body>
+	<nav data-th-replace="component/componentes :: _navbar"></nav>
+		<div class="container">
+			<div class="row d-flex justify-content-center mt-5">
+				<div class="col-7 mt-5 border border-1 border-dark rounded-3 py-4">
+					<p class="h3 text-center">Dev-courses</p>
+					<p class="fs-5 text-center">Requiere autenticación</p>
+					<form class="">
+					  <div class="mb-3">
+					    <label for="rut" class="form-label">Ingresa tu RUN: </label>
+					    <input type="text" class="form-control" id="rut" placeholder="sin puntos, solo guión">
+					  </div>
+					  <div class="mb-3">
+					    <label for="contrasena" class="form-label">Ingresa tu clave: </label>
+					    <input type="password" class="form-control" id="contrasena">
+					  </div>
+					  <button type="submit" class="btn btn-outline-success">Ingresar</button>
+					</form>				
+				</div>
+			</div>
+		</div>
+	<footer data-th-replace="component/componentes :: _footer"></footer>
+	<script data-th-replace="component/componentes :: _script"></script>
+</body>
+</html>
