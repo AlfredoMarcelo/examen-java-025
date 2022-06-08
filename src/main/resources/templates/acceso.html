@@ -8,17 +8,20 @@
 	<nav data-th-replace="component/componentes :: _navbar"></nav>
 		<div class="container">
 			<div class="row d-flex justify-content-center mt-5">
+				<div data-th-if="${param.error}" class="alert alert-danger mt-3" role="alert">
+				  Usuario o contraseña invalida!!
+				</div>
 				<div class="col-7 mt-5 border border-1 border-dark rounded-3 py-4">
 					<p class="h3 text-center">Dev-courses</p>
 					<p class="fs-5 text-center">Requiere autenticación</p>
-					<form class="">
+					<form data-th-action="@{/acceso}" class="" method="post">
 					  <div class="mb-3">
 					    <label for="rut" class="form-label">Ingresa tu RUN: </label>
-					    <input type="text" class="form-control" id="rut" placeholder="sin puntos, solo guión">
+					    <input type="text" class="form-control" id="rut" name="username">
 					  </div>
 					  <div class="mb-3">
 					    <label for="contrasena" class="form-label">Ingresa tu clave: </label>
-					    <input type="password" class="form-control" id="contrasena">
+					    <input type="password" class="form-control" id="contrasena" name="password">
 					  </div>
 					  <button type="submit" class="btn btn-outline-success">Ingresar</button>
 					</form>				

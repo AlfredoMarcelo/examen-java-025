@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import cl.aiep.java.model.Administrador;
+import cl.aiep.java.model.Postulante;
 import cl.aiep.java.service.AdministradorService;
 import cl.aiep.java.service.PostulanteService;
 
@@ -29,6 +30,18 @@ public class DevcoursesApplication {
 												.contrasena("123")
 												.build();
 				administradorService.crearAdministrador(administrador);
+				
+				Postulante postulante = Postulante.builder()
+											.nombre("alfredo")
+											.rut("18314509-6")
+											.email("alfredo@gmail.com")
+											.contrasena("1234")
+											.telefono("99999999")
+											.direccion("Puelle 21")
+											.region("X")
+											.build();
+				postulanteService.crearPostulante(postulante);
+											
 			}
 		};
 	}
