@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="component/componentes :: _head(~{::title})">
+<meta charset="UTF-8">
+<title>Crear curso</title>
+</head>
+<body>
+	<nav data-th-replace="component/componentes :: _navbar"></nav>
+	<div class="container">
+		<div class="row d-flex justify-content-center mt-5">
+			<div class="col-8 mt-4 bg-light border border-1 border-dark rounded-3 py-1">
+				<p class="h3 text-center">Dev-courses</p>
+				<p class="fs-5 text-center">Ingrese datos del curso</p>
+				<form class="row g-3" data-th-action="@{/curso/registrar}" data-th-object="${curso}" method="post" enctype="multipart/form-data" novalidate>
+					<input type="hidden" data-th-field="*{id}"/>
+					<div class="col-md-6">
+				    	<label for="nombre" class="form-label">Nombre: </label>
+				    	<input data-th-field="*{nombre}" type="text" class="form-control" id="nombre" required>				    	
+				    	<span data-th-if="${#fields.hasErrors('nombre')}" data-th-errors="*{nombre}" />
+				  	</div>
+				  	<div class="col-6">
+				    	<label for="cupos" class="form-label">Cupos disponibles: </label>
+				    	<input data-th-field="*{cupos}" type="number" class="form-control" id="cupos" placeholder="">
+				    	<span data-th-if="${#fields.hasErrors('cupos')}" data-th-errors="*{cupos}" />
+				  	</div>
+					<div class="col-md-12">
+				    	<label for="descripcion" class="form-label">Descripción: </label>
+				    	<input data-th-field="*{descripcion}" type="text" class="form-control" id="descripcion">
+				    	<span data-th-if="${#fields.hasErrors('descripcion')}" data-th-errors="*{descripcion}" />
+				  	</div>
+					<div class="col-md-12">
+				    	<label for="contenido" class="form-label">Contenido: </label>
+				    	<input data-th-field="*{contenido}" type="text" class="form-control" id="contenido">
+				    	<span data-th-if="${#fields.hasErrors('contenido')}" data-th-errors="*{contenido}" />
+				  	</div>
+				  	<div class="col-md-6">
+				    	<label for="fechaInicio" class="form-label">Fecha inicio: </label>
+				    	<input data-th-field="*{fechaInicio}" type="date" class="form-control" id="fechaInicio">
+				  	</div>
+				  	<div class="col-6">
+				    	<label for="FechaTermino" class="form-label">Fecha Termino: </label>
+				    	<input data-th-field="*{fechaTermino}" type="date" class="form-control" id="fechaTermino" placeholder="">
+				  	</div>
+				  	<div class="col-md-4">
+				    	<label for="archivo">Cargar imagen:</label>
+						<input  type="file" name="archivo" class="form-control" id="archivo"/>
+				  	</div>
+				  	<div class="col-12 mb-2">
+				    	<button type="submit" class="btn btn-outline-success">Cargar curso</button>
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script data-th-replace="component/componentes :: _script"></script>
+</body>
+</html>
