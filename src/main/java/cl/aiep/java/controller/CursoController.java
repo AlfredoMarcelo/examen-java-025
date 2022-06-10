@@ -1,7 +1,6 @@
 package cl.aiep.java.controller;
 
 
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import cl.aiep.java.model.Administrador;
 import cl.aiep.java.model.Curso;
@@ -40,6 +40,7 @@ public class CursoController {
 		return "curso/formulario";
 	}
 	
+
 	@PostMapping("/registrar")
 	public String registrarCurso(
 			@Valid Curso curso
@@ -52,18 +53,18 @@ public class CursoController {
 			return "curso/formulario";
 		}
 		try {
-			Usuario usuario = (Usuario) usuarioAutenticado.getPrincipal();
-			Administrador administrador = administradorRepository.findById(
-					usuario.getAdministrador()
-					.getId()
-					).get();
+			Usuario usuario 			= (Usuario) usuarioAutenticado.getPrincipal();
+			String tipoArchivo			= archivo.getContentType();
+			byte[] contenidoArchivo 	= archivo.getBytes();
+			Curso cursoObjeto 			= new Curso();
+			
+			Administrador administrador = administradorRepository.findById(usuario.getAdministrador().getId()).get();
 			curso.setAdministrador(administrador);
-			String tipoArchivo = archivo.getContentType();
-			byte[] contenidoArchivo = archivo.getBytes();
-			Curso cursoObjeto = new Curso();
-			if(curso.getId() > 0) {
+			
+			if(curso.getId() != null && curso.getId() > 0) {
 				cursoObjeto = cursoRepository.findById(curso.getId()).get();
 			}
+			
 			cursoObjeto.setDatos(contenidoArchivo);
 			cursoObjeto.setTipo(tipoArchivo);
 			cursoObjeto.setNombre(curso.getNombre());
@@ -80,6 +81,9 @@ public class CursoController {
 		}
 		return "redirect:/administrador/panel";
 	}
+	
+	
+	
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarCurso(@PathVariable Long id) {
@@ -100,6 +104,12 @@ public class CursoController {
 				.contentType(MediaType.valueOf(curso.getTipo()))
 				.body(curso.getDatos())
 				;
+	}
+	
+	@GetMapping("/ver/{id}")
+	public String verCurso(@PathVariable(name = "id")Curso curso, Model modelo) {
+		modelo.addAttribute("curso", curso);
+		return "curso/descripcion";
 	}
 	
 }

@@ -2,6 +2,7 @@ package cl.aiep.java.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -27,7 +28,7 @@ public class ConfiguracionSeguridad {
 	public SecurityFilterChain filtroSeguridad(HttpSecurity http) throws Exception{
 		http
 			.authorizeRequests(authorize -> authorize
-								.anyRequest().authenticated()//para cualquier peticion, solicite la autenticacion(rutas privadas y publicas)
+								.anyRequest().permitAll()//para cualquier peticion, solicite la autenticacion(rutas privadas y publicas)
 			)
 			.formLogin(form -> form							
 						.loginPage("/acceso")				//se indica la vista que se usará para el login

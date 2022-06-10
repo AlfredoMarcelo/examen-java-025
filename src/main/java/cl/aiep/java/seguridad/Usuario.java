@@ -15,6 +15,10 @@ import cl.aiep.java.model.Postulante;
 public class Usuario implements UserDetails{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6383347288116472226L;
 	private Administrador administrador;
 	private Postulante postulante;
 	
