@@ -8,7 +8,7 @@
 	<nav data-th-replace="component/componentes :: _navbar"></nav>
 		<div data-th-replace="component/componentes :: _carousel"></div>
 			<div class="container">
-				<p class="text-center fs-1 fw-bold mt-3 font-monospace">Cursos disponibles</p>
+				<p class="text-center text-white fs-1 fw-bold mt-3 font-monospace">Cursos disponibles</p>
 				<div class="row mb-5">
 					<div data-th-each="curso : ${cursos}" class="col-12 col-md-3 my-5 d-flex justify-content-center">
 						<div class="card bg-dark"  style="width: 18rem;">
@@ -23,39 +23,6 @@
 							   </div>
 							  </div>
 						</div>
-						
-						<div class="modal fade" id="verCurso">
-						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-							<div class="modal-content">
-								<div class="modal-header">
-									<p class="modal-title fs-3 fw-bold" data-th-text="${curso.nombre}"></p>
-									<button class="btn btn-close" data-bs-dismiss="modal"></button>
-								</div>
-								<!-- contenido -->
-								<div class="modal-body bg-light">
-									<div class="row">
-										<div class="col-6 mx-auto">
-										<img data-th-src="@{/curso/image/{id}(id=${curso.id})}" class="rounded mx-auto" alt="...">
-										</div>
-									</div>
-										<p class="carda-title fs-5" data-th-text="${curso.descripcion}"></p>
-										<p class="carda-title fs-5" data-th-text="${curso.contenido}"></p>
-									<div class="row">
-										<div class="col">
-											 <p class="fs-6 text-warning mb-0"><i class="bi bi-people-fill"></i> Cupos: <span class="card-text text-warning fs-6" data-th-text="${curso.cupos}"></span></p>
-											 <p class="fs-6 text-warning mb-0"><i class="bi bi-calendar-check"></i> Inicio: <span class="card-text text-warning fs-6" data-th-text="${curso.fechaInicio}"></span></p>
-											 <p class="fs-6 text-warning mb-2"><i class="bi bi-calendar-x"></i> Termina: <span class="card-text text-warning fs-6" data-th-text="${curso.fechaTermino}"></span></p>
-										</div>
-									</div>	
-								</div>
-								<!-- Footer -->
-								<div class="modal-footer">
-									<button class="btn btn-outline-danger" data-bs-dismiss="modal">Volver</button>
-									<a class="btn btn-outline-success ms-1">Postular</a>
-								</div>
-							</div>
-						</div>
-					</div>
 					</div>
 				</div>
 				<div class="col my-5"><span>-</span></div>

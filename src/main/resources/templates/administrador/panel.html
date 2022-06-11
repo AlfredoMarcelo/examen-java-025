@@ -6,10 +6,11 @@
 </head>
 <body class="bg-dark">
 	<nav data-th-replace="component/componentes :: _navbar"></nav>
-	<div class="container bg-dark">
-		<div class="row mt-3"></div>
+		<div class="col my-5"><span>-</span></div>
+	<div class="container bg-dark rounded">
 		<div class="row">
-			<div class="col mt-5">
+			<div class="col text-center">
+				<p class="text-white fs-2">Panel Administrador</p>
 				<table class="table table-dark table-hover">
 					<thead>
 						<tr>
@@ -17,8 +18,8 @@
 							<th scope="col">Nombre</th>
 							<th scope="col">Descripcion</th>
 							<th scope="col">contenido</th>
-							<th scope="col">Fecha de inicio</th>
-							<th scope="col">Fecha de termino</th>
+							<th scope="col">Inicio</th>
+							<th scope="col">Termino</th>
 							<th scope="col">Cupos</th>
 							<th scope="col">Acciones</th>
 							
@@ -34,7 +35,7 @@
 							<td th:text="${curso.fechaTermino}"></td>
 							<td th:text="${curso.cupos}"></td>
 							<td>
-								<a th:href="@{/curso/editar/{id}(id=${curso.id})}" class="btn btn-warning">Editar</a>
+								<a th:href="@{/curso/editar/{id}(id=${curso.id})}" class="btn btn-warning mb-2">Editar</a>
 								<a th:href="@{/curso/eliminar/{id}(id=${curso.id})}" class="btn btn-danger">Eliminar</a>
 							</td>
 						</tr>
@@ -44,11 +45,13 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<a class="btn btn-info" th:href="@{/}">Volver</a>
-				<a class="btn btn-success" th:href="@{/curso/formulario}">Crear</a>
+				<a class="btn btn-outline-danger" th:href="@{/}">Volver</a>
+				<a class="btn btn-success" th:href="@{/curso/formulario}">Crear curso</a>
 			</div>
 		</div>
 	</div>
+	<div class="col my-5"><span>-</span></div>
+		<div class="col my-5"><span>-</span></div>
 	<footer data-th-replace="component/componentes :: _footer"></footer>
 	<script data-th-replace="component/componentes :: _script"></script>
 </body>

@@ -11,7 +11,7 @@
 				<div data-th-if="${param.error}" class="alert alert-danger mt-3" role="alert">
 				  Usuario o contraseña invalida!!
 				</div>
-				<div class="col-7 mt-5 border border-1 border-dark rounded-3 py-4">
+				<div class="col-7 mt-5 border border-1 border-dark rounded-3 py-4 bg-light">
 					<p class="h3 text-center">Dev-courses</p>
 					<p class="fs-5 text-center">Requiere autenticación</p>
 					<form data-th-action="@{/acceso}" class="" method="post">
@@ -27,6 +27,10 @@
 					</form>				
 				</div>
 			</div>
+			<div class="col my-5"><span>-</span></div>
+			<div class="col my-4"><span>-</span></div>
+			<div class="col my-3"><span>-</span></div>
+			
 		</div>
 	<footer data-th-replace="component/componentes :: _footer"></footer>
 	<script data-th-replace="component/componentes :: _script"></script>
