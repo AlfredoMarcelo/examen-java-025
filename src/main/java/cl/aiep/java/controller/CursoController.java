@@ -61,8 +61,12 @@ public class CursoController {
 			Administrador administrador = administradorRepository.findById(usuario.getAdministrador().getId()).get();
 			curso.setAdministrador(administrador);
 			
+			//sea una modificacion de curso
 			if(curso.getId() != null && curso.getId() > 0) {
 				cursoObjeto = cursoRepository.findById(curso.getId()).get();
+			}else {
+				//en caso de que se este creando un curso
+				cursoObjeto.setCuposDisponibles(curso.getCupos());			
 			}
 			
 			cursoObjeto.setDatos(contenidoArchivo);
