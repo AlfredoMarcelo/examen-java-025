@@ -17,7 +17,7 @@ public class DevcoursesApplication {
 		SpringApplication.run(DevcoursesApplication.class, args);
 	}
 	
-	//configuracion inicial para crear usuarios
+	//configuracion inicial para crear usuarios subir imagen  .imagen(Files.readAllBytes(Paths.get("src/main/resources/static/img/java.jpg")))
 	@Bean
 	public CommandLineRunner datosIniciales(
 			PostulanteService postulanteService

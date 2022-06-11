@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cl.aiep.java.model.Curso;
+import cl.aiep.java.model.Postulacion;
 import cl.aiep.java.model.Postulante;
-import cl.aiep.java.repository.CursoRepository;
+import cl.aiep.java.repository.PostulacionRepository;
 import cl.aiep.java.seguridad.Usuario;
 import cl.aiep.java.service.PostulanteService;
 
@@ -24,8 +25,10 @@ public class PostulanteController {
 	
 	@Autowired
 	private PostulanteService postulanteService;
+	
+	
 	@Autowired
-	private CursoRepository cursoRepository;
+	private PostulacionRepository postulacionRepository;
 	
 	@GetMapping("/registro")
 	public String registro(Postulante postulante) {
@@ -42,8 +45,8 @@ public class PostulanteController {
 	public String panelControl(Curso curso, Model modelo, Authentication usuarioAutenticado) {
 		Usuario usuario = (Usuario) usuarioAutenticado.getPrincipal();
 		if( usuario.getPostulante() != null) {
-			List<Curso> cursos = cursoRepository.findAll();
-			modelo.addAttribute("curso", cursos);
+			List<Postulacion> postulaciones = postulacionRepository.findByPostulante(usuario.getPostulante());
+			modelo.addAttribute("postulaciones", postulaciones);
 			return "postulante/panel";
 		}else {			
 			return "error/noencontrada";

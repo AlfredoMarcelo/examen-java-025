@@ -1,6 +1,6 @@
 package cl.aiep.java.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +24,7 @@ public class Postulacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private LocalDate fechaRegistro;
+	private LocalDateTime fechaRegistro = LocalDateTime.now();
 	@ManyToOne
 	@JoinColumn(nullable = false)
 	private Curso curso;

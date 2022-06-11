@@ -20,9 +20,6 @@ public class AdministradorController {
 	@Autowired
 	private CursoRepository cursoRepository;
 	
-	
-	
-	
 	@GetMapping("/panel")
 	public String panelControl(Curso curso, Model modelo, Authentication usuarioAutenticado) {
 		Usuario usuario = (Usuario) usuarioAutenticado.getPrincipal();
@@ -30,7 +27,9 @@ public class AdministradorController {
 			List<Curso> cursos = cursoRepository.findAll();
 			modelo.addAttribute("cursos", cursos);
 			return "administrador/panel";			
-		} else {
+		} else if(usuario.getAdministrador() == null){
+			return "error/noencontrada";
+		}else {
 			return "error/noencontrada";
 		}
 	}

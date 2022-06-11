@@ -1,9 +1,12 @@
 package cl.aiep.java.controller;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,24 +28,26 @@ public class PostulacionController {
 	@Autowired
 	private PostulacionRepository postulacionRepository;
 	
-	@PostMapping("/registar/{id}")
+	@GetMapping("/registrar/{id}")
 	public String registrarPostulacion(@PathVariable("id") Curso curso, Authentication autenticacion, Model modelo) {
 		
-		int cuposDisponibles = curso.getCupos() - 1;
-		curso.setCuposDisponibles(cuposDisponibles);
-		cursoRepository.save(curso);
-		
 		Usuario usuario = (Usuario) autenticacion.getPrincipal();
-		Postulante postulante = usuario.getPostulante();
-		Postulacion postulacion = Postulacion.builder()
-									.postulante(postulante)
-									.curso(curso)
-									.build();
-
-		postulacionRepository.save(postulacion);
-				return "/";
+		if(usuario.getPostulante() != null) {			
+			int cuposDisponibles = curso.getCupos() - 1;
+			curso.setCuposDisponibles(cuposDisponibles);
+			cursoRepository.save(curso);
+			
+			Postulante postulante = usuario.getPostulante();
+			Postulacion postulacion = Postulacion.builder()
+					.postulante(postulante)
+					.curso(curso)
+					.fechaRegistro(LocalDateTime.now())
+					.build();
+			
+			postulacionRepository.save(postulacion);
+			return "redirect:/postulante/panel";
+		}else {
+			return"error/noencontrada";
+		}
 	}
-	
-	
-	
 }

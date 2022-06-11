@@ -49,7 +49,7 @@
 		<div class="row">
 			<div class="col">
 				<a class="btn btn-outline-danger" data-th-href="@{/}">Volver</a>
-				<a data-sec-authorize="hasAuthority('POSTULANTE')" class="btn btn-outline-success" data-th-href="@{/}">Postular</a>
+				<a data-sec-authorize="hasAuthority('POSTULANTE')" class="btn btn-outline-success" data-th-href="@{/postulacion/registrar/{id}(id=${curso.id})}">Postular</a>
 			</div>
 		</div>
 	</div>

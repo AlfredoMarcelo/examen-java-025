@@ -12,4 +12,6 @@ public interface PostulanteRepository extends JpaRepository<Postulante, Long>{
 	public Optional<Postulante> findByRut(String rut);
 	
 	
+	
+	
 }
