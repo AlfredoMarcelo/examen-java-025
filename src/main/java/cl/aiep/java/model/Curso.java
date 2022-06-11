@@ -33,10 +33,10 @@ public class Curso {
 	@Column(nullable = false)
 	private String nombre;
 	@NotBlank(message = "! Debe agregar la descripcion del curso")
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String descripcion;
 	@NotBlank(message = "! Debe agregar los contenidos del curso")
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String contenido;
 	@Column(nullable = false)
 	private LocalDate fechaInicio;
