@@ -20,7 +20,6 @@
 	    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 	      <div class="offcanvas-header">
 	        <h5 class="offcanvas-title " id="offcanvasNavbarLabel">Bienvenido <span data-sec-authorize="isAuthenticated()" data-sec-authentication="name" class="text-capitalize">Usuario</span></h5>
-	        
 	        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 	      </div>
 	      <div class="offcanvas-body">
@@ -69,16 +68,16 @@
 	
 	<!-- Footer -->
 	
-	<footer data-th-fragment="_footer" class="bg-dark text-white py-4  mt-5 ">
+	<footer data-th-fragment="_footer" class="bg-dark text-white py-4  mt-5 fixed-bottom">
 		<div class="container">
 			<nav class="row d-flex justify-content-center">
 				<ul class="col list-unstyled">
 					<li class="font-weight-bold text-uppercase text-center">Redes sociales</li>
-					<li class="text-center"><a
-						data-th-href="@{/}" class="text-reset"><i class="bi bi-github"></i></a>
-						<a data-th-href="@{/}" class="text-reset"><i
-							class="bi bi-facebook mx-3"></i></a> <a data-th-href="@{/}"
-						class="text-reset"><i class="bi bi-instagram"></i></a>
+					<li class="text-center">
+						<a data-th-href="@{https://github.com/AlfredoMarcelo}" class="text-reset"><i class="bi bi-github"></i></a>
+						<a data-th-href="@{https://www.linkedin.com/in/alfredo-supanta/}" class="text-reset"><i class="bi bi-linkedin mx-1"></i></a>
+						<a data-th-href="@{https://www.facebook.com/alfred26}" class="text-reset"><i class="bi bi-facebook mx-1"></i></a> 
+						<a data-th-href="@{https://www.instagram.com/alfredo.marceloo/}"class="text-reset"><i class="bi bi-instagram"></i></a>
 					</li>
 				</ul>
 			</nav>

@@ -16,26 +16,32 @@
 					<div class="col-md-6">
 				    	<label for="nombre" class="form-label">Nombre completo: </label>
 				    	<input data-th-field="*{nombre}" type="text" class="form-control" id="nombre">
+				    	<span data-th-if="${#fields.hasErrors('nombre')}"  data-th-errors="*{nombre}" class="text-danger"></span>
 				  	</div>
 					<div class="col-md-6">
 				    	<label for="rut" class="form-label">RUN: </label>
 				    	<input data-th-field="*{rut}" type="text" class="form-control" id="rut">
+				    	<span data-th-if="${#fields.hasErrors('rut')}"  data-th-errors="*{rut}" class="text-danger"></span>
 				  	</div>
 					<div class="col-md-6">
 				    	<label for="email" class="form-label">Correo electrónico: </label>
 				    	<input data-th-field="*{email}" type="email" class="form-control" id="email">
+				    	<span data-th-if="${#fields.hasErrors('email')}"  data-th-errors="*{email}" class="text-danger"></span>
 				  	</div>
 				  	<div class="col-md-6">
 				    	<label for="contrasena" class="form-label">Contraseña: </label>
 				    	<input data-th-field="*{contrasena}" type="password" class="form-control" id="contrasena">
+				    	<span data-th-if="${#fields.hasErrors('contrasena')}"  data-th-errors="*{contrasena}" class="text-danger"></span>
 				  	</div>
 				  	<div class="col-6">
 				    	<label for="telefono" class="form-label">Telefono: </label>
 				    	<input data-th-field="*{telefono}" type="text" class="form-control" id="telefono" placeholder="">
+				    	<span data-th-if="${#fields.hasErrors('telefono')}"  data-th-errors="*{telefono}" class="text-danger"></span>
 				  	</div>
 				  	<div class="col-6">
 				    	<label for="direccion" class="form-label">Dirección: </label>
 				    	<input data-th-field="*{direccion}" type="text" class="form-control" id="direccion" placeholder="">
+				    	<span data-th-if="${#fields.hasErrors('direccion')}"  data-th-errors="*{direccion}" class="text-danger"></span>
 				  	</div>
 				  	<div class="col-md-4 ms-auto">
 				    	<label for="region" class="form-label">Región: </label>

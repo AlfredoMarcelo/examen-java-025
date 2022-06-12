@@ -27,8 +27,10 @@ public class ConfiguracionSeguridad {
 	public SecurityFilterChain filtroSeguridad(HttpSecurity http) throws Exception{
 		http
 			.authorizeRequests(authorize -> authorize
+								.mvcMatchers("/").permitAll()
+								.mvcMatchers("/postulante/registro").permitAll()
 								.mvcMatchers("/administrador/**").authenticated()
-								.mvcMatchers("/postulante/**").authenticated()
+								
 								.anyRequest().permitAll()//para cualquier peticion, solicite la autenticacion(rutas privadas y publicas)
 			)
 			.formLogin(form -> form							

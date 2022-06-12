@@ -2,10 +2,13 @@ package cl.aiep.java.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +17,7 @@ import cl.aiep.java.model.Curso;
 import cl.aiep.java.model.Postulacion;
 import cl.aiep.java.model.Postulante;
 import cl.aiep.java.repository.PostulacionRepository;
+import cl.aiep.java.repository.PostulanteRepository;
 import cl.aiep.java.seguridad.Usuario;
 import cl.aiep.java.service.PostulanteService;
 
@@ -26,6 +30,8 @@ public class PostulanteController {
 	@Autowired
 	private PostulanteService postulanteService;
 	
+	@Autowired
+	private PostulanteRepository postulanteRepository;
 	
 	@Autowired
 	private PostulacionRepository postulacionRepository;
@@ -36,7 +42,11 @@ public class PostulanteController {
 	}
 	
 	@PostMapping("/registrar")
-	public String registrarPostulante(Postulante postulante) {
+	public String registrarPostulante(@Valid Postulante postulante, BindingResult mensajeValidacion) {
+		if(mensajeValidacion.hasErrors()) {
+			return "postulante/registro";
+		}
+		
 		postulanteService.crearPostulante(postulante);
 		return "redirect:/";
 	}
