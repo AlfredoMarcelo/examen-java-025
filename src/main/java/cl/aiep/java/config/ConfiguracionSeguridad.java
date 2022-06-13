@@ -49,9 +49,4 @@ public class ConfiguracionSeguridad {
 	public WebSecurityCustomizer personalizarSeguridad() {
 		return (web) -> web.ignoring().antMatchers("/img/**", "/css/**", "/js/**");
 	}
-	
-	
-	
-	
-
 }

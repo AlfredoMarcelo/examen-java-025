@@ -6,7 +6,7 @@
 </head>
 <body class="bg-dark">
 	<nav data-th-replace="component/componentes :: _navbar"></nav>
-	<div class="container bg-dark">
+	<div class="container">
 		<div class="row mt-3"></div>
 		
 		<div data-th-if="${error}" data-th-text="${error}" class="alert alert-danger mt-3 mt-5" role="alert">
@@ -44,8 +44,8 @@
 				</div>
 			<div class="row">
 				<div class="col-12 mt-3">
-					<p class="fs-6 text-white">Fecha inicio: <span class="fs-6" data-th-text="${postulacion.curso.fechaInicio}"></span></p>
-					<p class="fs-6 text-white">Fecha fin: <span class="fs-6" data-th-text="${postulacion.curso.fechaTermino}"></span></p>
+					<p class="fs-6 text-white">Tu curso inicia : <span class="fs-6" data-th-text="${postulacion.curso.fechaInicio}"></span></p>
+					<p class="fs-6 text-white">Tu curso termina : <span class="fs-6" data-th-text="${postulacion.curso.fechaTermino}"></span></p>
 				</div>
 			</div>
 			</div>
@@ -60,4 +60,4 @@
 	<footer data-th-replace="component/componentes :: _footer"></footer>
 	<script data-th-replace="component/componentes :: _script"></script>
 </body>
-</html>/html>
+</html>
