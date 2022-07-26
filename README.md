@@ -1,4 +1,4 @@
-# Dev-courses ⭐ java, Spring, MySql ❄
+# Dev-courses ⭐ java ☕, Spring 🍃, MySql 🐬
 
 Aplicación encargada de alojar cursos de programación. Aquí el administrador puede tener acceso a cargar cursos,
 indicando la fecha de inicio, fin y cupos disponibles para inscripción. Los interesados pueden ver los cursos disponibles y además
